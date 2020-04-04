@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using WEB_API_CRUD_LINQ_SQL.Models;
 
 namespace WEB_API_CRUD_LINQ_SQL.Controllers
 {
@@ -27,6 +28,26 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers
                 empobj = displaydata.Result;
             }
             return View(empobj);
+        }
+
+        public ActionResult Details(int id)
+        {
+            EmpClass empobj = null;
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("https://localhost:44325/api/");
+
+            var consumeapi = hc.GetAsync("Empcrud?id=" + id.ToString());
+            consumeapi.Wait();
+
+            var readdata = consumeapi.Result;
+            if(readdata.IsSuccessStatusCode)
+            {
+                var displaydata = readdata.Content.ReadAsAsync<EmpClass>();
+                displaydata.Wait();
+                empobj = displaydata.Result;
+            }
+            return View(empobj);
+
         }
     }
 }

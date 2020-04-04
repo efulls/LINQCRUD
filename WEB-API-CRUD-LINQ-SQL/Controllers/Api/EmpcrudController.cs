@@ -15,5 +15,11 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers.Api
             var emprecords = dc.newemps.ToList();
             return Ok(emprecords);
         }
+
+        public IHttpActionResult Getemprecords(int id)
+        {
+            var displayempdata = (from x in dc.newemps where x.Empid == id select x).FirstOrDefault();
+            return Ok(displayempdata);
+        }
     }
 }
