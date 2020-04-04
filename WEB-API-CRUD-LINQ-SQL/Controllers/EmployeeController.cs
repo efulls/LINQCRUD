@@ -108,5 +108,21 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers
             return View(ec);
 
         }
+
+        public ActionResult Delete(int id)
+        {
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("https://localhost:44325/api/empcrud");
+
+            var consumeapi = hc.DeleteAsync("Empcrud/"+id.ToString());
+            consumeapi.Wait();
+
+            var deleterecord = consumeapi.Result;
+            if (deleterecord.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View("Index");
+        }
     }
 }

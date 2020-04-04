@@ -49,5 +49,13 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers.Api
             }
             return Ok();
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var deleteemp = (from x in dc.newemps where x.Empid == id select x).FirstOrDefault();
+            dc.newemps.DeleteOnSubmit(deleteemp);
+            dc.SubmitChanges();
+            return Ok();
+        }
     }
 }
