@@ -71,5 +71,42 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers
             }
             return View("Create");
         }
+
+        public ActionResult Edit(int id)
+        {
+            EmpClass empobj = null;
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("https://localhost:44325/api/");
+
+            var consumeapi = hc.GetAsync("Empcrud?id=" + id.ToString());
+            consumeapi.Wait();
+
+            var readdata = consumeapi.Result;
+            if (readdata.IsSuccessStatusCode)
+            {
+                var displaydata = readdata.Content.ReadAsAsync<EmpClass>();
+                displaydata.Wait();
+                empobj = displaydata.Result;
+            }
+            return View(empobj);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EmpClass ec)
+        {
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("https://localhost:44325/api/Empcrud");
+
+            var insertdata = hc.PutAsJsonAsync<EmpClass>("Empcrud", ec);
+            insertdata.Wait();
+
+            var savedata = insertdata.Result;
+            if (savedata.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(ec);
+
+        }
     }
 }
