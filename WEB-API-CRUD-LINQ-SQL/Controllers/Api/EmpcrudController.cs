@@ -21,5 +21,14 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers.Api
             var displayempdata = (from x in dc.newemps where x.Empid == id select x).FirstOrDefault();
             return Ok(displayempdata);
         }
+
+        [HttpPost]
+        public IHttpActionResult Inseremp(newemp ne)
+        {
+            dc.newemps.InsertOnSubmit(ne);
+            dc.SubmitChanges();
+            return Ok();
+
+        }
     }
 }

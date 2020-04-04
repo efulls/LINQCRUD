@@ -49,5 +49,27 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers
             return View(empobj);
 
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(EmpClass ec)
+        {
+            HttpClient hc = new HttpClient();
+            hc.BaseAddress = new Uri("https://localhost:44325/api/Empcrud");
+
+            var insertdata = hc.PostAsJsonAsync<EmpClass>("Empcrud", ec);
+            insertdata.Wait();
+
+            var savedata = insertdata.Result;
+            if(savedata.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View("Create");
+        }
     }
 }
