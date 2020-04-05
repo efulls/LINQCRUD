@@ -32,6 +32,42 @@ namespace WEB_API_CRUD_LINQ_SQL.Controllers.Api
 
         }
 
+        //Another methode single insert method
+        [Route("~/Employee/NewAdd")]
+        [HttpPost]
+        public IHttpActionResult InsertempNew(newemp ne)
+        {
+
+            newemp Emplo = new newemp();
+            Emplo.Empname = ne.Empname;
+            Emplo.Email = ne.Email;
+            Emplo.Location = ne.Location;
+
+            dc.newemps.InsertOnSubmit(Emplo);
+            dc.SubmitChanges();
+            return Ok();
+
+        }
+
+        //Multiple insert method
+        [Route("~/Employee/NewMultiple")]
+        [HttpPost]
+        public IHttpActionResult InsertempMultiple(IEnumerable<newemp> ne)
+        {
+            var fadd = from field in ne
+                       select new newemp
+                       {
+                           Empname = field.Empname,
+                           Email = field.Email,
+                           Location = field.Location
+                       };
+            
+            dc.newemps.InsertAllOnSubmit(fadd);
+            dc.SubmitChanges();
+            return Ok();
+
+        }
+
         public IHttpActionResult Put(EmpClass ec)
         {
             var updateemp = (from x in dc.newemps where x.Empid == ec.Empid select x).FirstOrDefault();
