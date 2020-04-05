@@ -157,6 +157,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\EmpcrudController.cs" />
+    <Compile Include="Controllers\Api\InsuranceController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -168,8 +169,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LinqSqlClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ByPurchaseId.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\DataExtension.cs" />
+    <Compile Include="Models\EmailInfo.cs" />
     <Compile Include="Models\EmpClass.cs" />
+    <Compile Include="Models\NameInfo.cs" />
+    <Compile Include="Models\PhoneInfo.cs" />
+    <Compile Include="Models\PolicyInfo.cs" />
+    <Compile Include="Models\QuoteInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\PolicyRequestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

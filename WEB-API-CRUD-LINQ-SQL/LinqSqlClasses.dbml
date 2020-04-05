@@ -8,4 +8,59 @@
       <Column Name="Location" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TrxInsurancePax" Member="TrxInsurancePaxes">
+    <Type Name="TrxInsurancePax">
+      <Column Name="Id" Type="System.String" DbType="VarChar(120) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrxInsurancePurchaseId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GivenName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TitlePrefix" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BirthDt" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdNumberTypeCd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdNumber" Type="System.Data.Linq.Binary" DbType="VarBinary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleRelationshipDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PaxNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrxInsurancePurchase" Member="TrxInsurancePurchases">
+    <Type Name="TrxInsurancePurchase">
+      <Column Name="Id" Type="System.String" DbType="VarChar(120) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SenderId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="QuoteId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MobileNumber" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Address2" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Address3" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="City" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="StateProv" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProductId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="EffectiveDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ExpirationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DestinationId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="DestionationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InsuredTypeId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="InsuredTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PlanId" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="PlanName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PolicyNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PolicyStatus" Type="System.Data.Linq.Binary" DbType="VarBinary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DepartureCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ArrivalCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PaymentMethod" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BookingReference" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentPayTo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OriginalSubmittedPolicyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IssuedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SettlementDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PolicySchedule" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsAnnualPlan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PolicyApplicationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
